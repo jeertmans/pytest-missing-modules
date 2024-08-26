@@ -1,29 +1,125 @@
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling", "hatch-fancy-pypi-readme"]
+
 [project]
-name = "pytest-missing-modules"
-version = "0.1.0"
-description = "Pytest plugin to easily fake missing modules"
 authors = [
-    { name = "Jérome Eertmans", email = "jeertmans@icloud.com" }
+  {name = "Jérome Eertmans", email = "jeertmans@icloud.com"},
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Topic :: Software Development :: Testing",
+  "Framework :: Pytest",
 ]
 dependencies = [
-    "pytest>=8.3.2",
+  "pytest>=8.3.2",
 ]
-readme = "README.md"
-requires-python = ">= 3.9"
+description = "Pytest plugin to easily fake missing modules"
+dynamic = ["readme", "version"]
+keywords = ["pytest", "plugin", "mocking", "missing", "modules", "testing"]
+license = "MIT"
+name = "pytest-missing-modules"
+requires-python = ">= 3.8"
 
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+[project.entry-points.pytest11]
+pytest_missing_modules = "pytest_missing_modules.plugin"
 
-[tool.rye]
-managed = true
-dev-dependencies = []
+[project.urls]
+Changelog = "https://github.com/jeertmans/pytest-missing-modules/releases"
+Documentation = "https://github.com/jeertmans/pytest-missing-modules"
+Founding = "https://github.com/sponsors/jeertmans"
+Homepage = "https://github.com/jeertmans/pytest-missing-modules"
+Repository = "https://github.com/jeertmans/pytest-missing-modules"
 
-[tool.hatch.metadata]
-allow-direct-references = true
+[tool.bumpversion]
+allow_dirty = false
+commit = true
+commit_args = ""
+current_version = "0.1.0"
+ignore_missing_version = false
+message = "chore(deps): bump version from {current_version} to {new_version}"
+regex = false
+replace = "{new_version}"
+search = "{current_version}"
+tag = false
+
+[[tool.bumpversion.files]]
+filename = "src/pytest_missing_modules/__version__.py"
+replace = '__version__ = "{new_version}"'
+search = '__version__ = "{current_version}"'
+
+[[tool.bumpversion.files]]
+filename = "CHANGELOG.md"
+replace = "v{new_version}"
+search = "Unreleased"
+
+[[tool.bumpversion.files]]
+filename = "CHANGELOG.md"
+replace = "v{new_version}"
+search = "unreleased"
+
+[[tool.bumpversion.files]]
+filename = "CHANGELOG.md"
+replace = "v{current_version}...v{new_version}"
+search = "v{current_version}...HEAD"
+
+[[tool.bumpversion.files]]
+filename = "CHANGELOG.md"
+replace = '''<!-- start changelog -->
+
+(unreleased)=
+## [Unreleased](https://github.com/jeertmans/pytest-missing-modules/compare/v{new_version}...HEAD)'''
+search = "<!-- start changelog -->"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/pytest_missing_modules"]
 
-[project.entry-points.pytest11]
-pytest_missing_modules = "pytest_missing_modules.plugin"
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.metadata.hooks.fancy-pypi-readme]
+content-type = "text/markdown"
+
+[[tool.hatch.metadata.hooks.fancy-pypi-readme.fragments]]
+path = "README.md"
+
+[[tool.hatch.metadata.hooks.fancy-pypi-readme.substitutions]]
+pattern = '> \[!([A-Z]+)\]'
+replacement = '> **\1:**'
+
+[tool.hatch.version]
+path = "src/pytest_missing_modules/__version__.py"
+
+[tool.pyright]
+include = ["src/pytest_missing_modules"]
+venv = ".venv"
+venvPath = "."
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.ruff.lint]
+extend-ignore = ["ANN401", "COM812", "CPY001", "D203", "D213", "ISC001"]
+isort = {known-first-party = ["pytest_missing_modules", "tests"]}
+preview = true
+select = ["ALL"]
+
+[tool.ruff.lint.per-file-ignores]
+"*tests/*" = ["D"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.rye]
+dev-dependencies = [
+  "bump-my-version>=0.23.0",
+  "pre-commit>=3.7.1",
+]
+managed = true

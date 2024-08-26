@@ -28,7 +28,14 @@ def test_missing_modules_one_module(
 
     with missing_modules(*names):
         for name in names:
-            with pytest.raises(ImportError, match="Mocked"):
+            with pytest.raises(ImportError, match=f"Mocked import error for '{name}'"):
+                importlib.import_module(name)
+
+    with missing_modules(*names, error_msg="My custom error message for '{name}'"):  # noqa: RUF027
+        for name in names:
+            with pytest.raises(
+                ImportError, match=f"My custom error message for '{name}'"
+            ):
                 importlib.import_module(name)
 
     for name in names:
