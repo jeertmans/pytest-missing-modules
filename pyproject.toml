@@ -1,0 +1,29 @@
+[project]
+name = "pytest-missing-modules"
+version = "0.1.0"
+description = "Pytest plugin to easily fake missing modules"
+authors = [
+    { name = "Jérome Eertmans", email = "jeertmans@icloud.com" }
+]
+dependencies = [
+    "pytest>=8.3.2",
+]
+readme = "README.md"
+requires-python = ">= 3.9"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pytest_missing_modules"]
+
+[project.entry-points.pytest11]
+pytest_missing_modules = "pytest_missing_modules.plugin"
