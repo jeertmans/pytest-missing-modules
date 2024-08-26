@@ -1,11 +1,14 @@
 # pytest-missing-modules
 
+[![Latest Release][pypi-version-badge]][pypi-version-url]
+[![Python version][pypi-python-version-badge]][pypi-version-url]
+
 Minimalist Pytest plugin that adds a fixture to fake missing modules.
 
 ## Who should use this plugin
 
-Sometimes, your code needs to handle to possibility that
-an optional dependency can be *missing*, e.g., a plotting
+Sometimes, your code needs to handle the possibility that
+an optional dependency can be *missing*, e.g., you develop a plotting
 library supporting multiple drawing backends.
 
 This plugin provides a convenient way to simulate one
@@ -41,3 +44,15 @@ from pytest_missing_modules.plugin import MissingModulesContextGenerator
 def test_missing_package(missing_modules: MissingModulesContextGenerator):
     # your test logic goes here
 ```
+
+## Contributing
+
+This project welcomes any contribution, and especially:
+
++ bug fixes;
++ or documentation typos.
+
+[pypi-version-badge]: https://img.shields.io/pypi/v/pytest-missing-modules?label=pytest-missing-modules
+[pypi-version-url]: https://pypi.org/project/pytest-missing-modules/
+[pypi-python-version-badge]: https://img.shields.io/pypi/pyversions/pytest-missing-modules
+[pypi-download-badge]: https://img.shields.io/pypi/dm/pytest-missing-modules
