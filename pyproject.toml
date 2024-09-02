@@ -20,6 +20,7 @@ classifiers = [
 ]
 dependencies = [
   "pytest>=8.3.2",
+  "typing-extensions>=4.12.2;python_version<'3.10'",
 ]
 description = "Pytest plugin to easily fake missing modules"
 dynamic = ["readme", "version"]
@@ -112,7 +113,7 @@ preview = true
 select = ["ALL"]
 
 [tool.ruff.lint.per-file-ignores]
-"*tests/*" = ["D"]
+"*tests/*" = ["D", "FBT001", "S101"]
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"
