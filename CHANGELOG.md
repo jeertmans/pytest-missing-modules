@@ -13,16 +13,19 @@ for our library.
 <!-- start changelog -->
 
 (unreleased)=
-## [Unreleased](https://github.com/jeertmans/pytest-missing-modules/compare/v0.1.0...HEAD)
+## [Unreleased](https://github.com/jeertmans/pytest-missing-modules/compare/v0.2.0...HEAD)
 
-(unreleased-added)=
+(v0.2.0)=
+## [v0.2.0](https://github.com/jeertmans/pytest-missing-modules/compare/v0.1.0...v0.2.0)
+
+(v0.2.0-added)=
 ### Added
 
 - Added `patch_import` and `patch_find_spec` keyword arguments to allow
   the user further fine-tuning.
   [#2](https://github.com/jeertmans/pytest-missing-modules/pull/2)
 
-(unreleased-chore)=
+(v0.2.0-chore)=
 ### Chore
 
 - Cleaned up CI and added `pre-commit` run.
