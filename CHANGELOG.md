@@ -15,6 +15,12 @@ for our library.
 (unreleased)=
 ## [Unreleased](https://github.com/jeertmans/pytest-missing-modules/compare/v0.1.0...HEAD)
 
+(unreleased-chore)=
+### Chore
+
+- Cleaned up CI and added `pre-commit` run.
+  [#2](https://github.com/jeertmans/pytest-missing-modules/pull/2)
+
 (v0.1.0)=
 ## [v0.1.0](https://github.com/jeertmans/pytest-missing-modules/commits/v0.1.0)
 
