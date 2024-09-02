@@ -15,10 +15,21 @@ for our library.
 (unreleased)=
 ## [Unreleased](https://github.com/jeertmans/pytest-missing-modules/compare/v0.1.0...HEAD)
 
+(unreleased-added)=
+### Added
+
+- Added `patch_import` and `patch_find_spec` keyword arguments to allow
+  the user further fine-tuning.
+  [#2](https://github.com/jeertmans/pytest-missing-modules/pull/2)
+
 (unreleased-chore)=
 ### Chore
 
 - Cleaned up CI and added `pre-commit` run.
+  [#2](https://github.com/jeertmans/pytest-missing-modules/pull/2)
+- Made `MissingModulesContextGenerator` a concrete class.
+  [#2](https://github.com/jeertmans/pytest-missing-modules/pull/2)
+- Type hints were improved.
   [#2](https://github.com/jeertmans/pytest-missing-modules/pull/2)
 
 (v0.1.0)=
