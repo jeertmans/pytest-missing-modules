@@ -1,0 +1,19 @@
+# Run Python commands inside environment
+env-run := if env("NO_RYE", "") == "1" { "" } else { "rye run" }
+
+# Default command (list all commands)
+default:
+  @just --list
+
+# Clean build artifacts
+clean:
+  rm -rf build
+
+# Build docs
+build builder="html" *OPTIONS="-W --keep-going":
+  {{env-run}} sphinx-build {{OPTIONS}} -b={{builder}} source build
+
+# Check links
+linkcheck *ARGS: (build "linkcheck" ARGS)
+
+alias check := linkcheck

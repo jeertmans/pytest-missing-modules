@@ -38,15 +38,13 @@ class MissingModulesContextGenerator:
 
     In the provided context, an import of any modules in that list
     will raise an :py:class:`ImportError`.
+
+    Args:
+        monkeypatch: The monkeypatch object used to perform
+            all patches.
     """
 
-    def __init__(self, monkeypatch: pytest.MonkeyPatch) -> None:
-        """Instantiate a context manager generator.
-
-        Args:
-            monkeypatch: The monkeypatch object used to perform
-                all patches.
-        """
+    def __init__(self, monkeypatch: pytest.MonkeyPatch) -> None:  # noqa: D107
         self.monkeypatch = monkeypatch
 
     @contextmanager
@@ -62,8 +60,8 @@ class MissingModulesContextGenerator:
         Args:
             names: A list of modules names.
             error_msg: A string template for import errors.
-            patch_import: Whether to patch :func:`import` and
-                :func:`importlib.utils.import_module`.
+            patch_import: Whether to patch :func:`import<__import__>` and
+                :func:`importlib.import_module`.
             patch_find_spec: Whether to patch
                 :func:`importlib.util.find_spec`.
 
@@ -131,9 +129,47 @@ def missing_modules(monkeypatch: pytest.MonkeyPatch) -> MissingModulesContextGen
     """Pytest fixture that can be used to create missing_modules contexts.
 
     Args:
-        monkeypatch: A monkeypatch fixture, provided by: mod:`pytest`.
+        monkeypatch: A monkeypatch fixture, provided by :mod:`pytest`.
 
     Returns:
         A context manager that can be used to create missing modules contexts.
+
+    Examples:
+        This first examples shows the most basic usage of this module.
+
+        .. code-block:: python
+            :caption: The following must be placed in a test file.
+
+            import pytest
+
+
+            def test_missing_numpy(missing_modules):
+                with missing_modules("numpy"):
+                    with pytest.raises(ImportError):
+                        # Will always raise an error, even if NumPy is installed
+                        import numpy
+
+        A more interesting example would be to check that your package can still
+        be imported, even if a dependency is missing.
+
+        .. code-block:: python
+            :caption: The following must be placed in a test file.
+
+            import importlib
+            import importlib.util
+            import pytest
+            import my_package  # This succeeds
+
+
+            def test_missing_dependency(missing_modules):
+                with missing_modules("plotly", patch_find_spec=False):
+                    # We check that Plotly is installed
+                    assert importlib.util.find_spec("plotly") is not None
+                    # .. but not importable
+                    with pytest.raises(ImportError):
+                        import plotly
+
+                    # We check our package can still be imported
+                    importlib.reload(my_package)
     """
     return MissingModulesContextGenerator(monkeypatch)

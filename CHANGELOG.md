@@ -29,7 +29,9 @@ for our library.
   [#2](https://github.com/jeertmans/pytest-missing-modules/pull/2)
 - Made `MissingModulesContextGenerator` a concrete class.
   [#2](https://github.com/jeertmans/pytest-missing-modules/pull/2)
-- Type hints were improved.
+- Improved type hints.
+  [#2](https://github.com/jeertmans/pytest-missing-modules/pull/2)
+- Created first documentation.
   [#2](https://github.com/jeertmans/pytest-missing-modules/pull/2)
 
 (v0.1.0)=

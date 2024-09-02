@@ -114,6 +114,7 @@ select = ["ALL"]
 
 [tool.ruff.lint.per-file-ignores]
 "*tests/*" = ["D", "FBT001", "S101"]
+"docs/source/conf.py" = ["A001", "D", "DTZ011", "INP001"]
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"
@@ -122,5 +123,11 @@ convention = "google"
 dev-dependencies = [
   "bump-my-version>=0.23.0",
   "pre-commit>=3.7.1",
+  "myst-parser>=4.0.0",
+  "sphinxext-opengraph>=0.9.1",
+  "sphinx-autodoc-typehints>=2.3.0",
+  "sphinx-copybutton>=0.5.2",
+  "sphinx-remove-toctrees>=1.0.0.post1",
+  "sphinx-book-theme>=1.1.3",
 ]
 managed = true
