@@ -121,9 +121,11 @@ convention = "google"
 
 [tool.rye]
 dev-dependencies = [
+  # dev
   "bump-my-version>=0.23.0",
   "pre-commit>=3.7.1",
-  "myst-parser>=4.0.0",
+  # docs
+  "myst-parser>=3.0.0",
   "sphinxext-opengraph>=0.9.1",
   "sphinx-autodoc-typehints>=2.3.0",
   "sphinx-copybutton>=0.5.2",
