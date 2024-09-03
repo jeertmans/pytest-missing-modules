@@ -13,9 +13,12 @@ for our library.
 <!-- start changelog -->
 
 (unreleased)=
-## [Unreleased](https://github.com/jeertmans/pytest-missing-modules/compare/v0.2.0...HEAD)
+## [Unreleased](https://github.com/jeertmans/pytest-missing-modules/compare/v0.2.1...HEAD)
 
-(unreleased-chore)=
+(v0.2.1)=
+## [v0.2.1](https://github.com/jeertmans/pytest-missing-modules/compare/v0.2.0...v0.2.1)
+
+(v0.2.1-chore)=
 ### Chore
 
 - Cleaned up documentation.
