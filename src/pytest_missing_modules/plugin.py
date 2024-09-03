@@ -34,7 +34,7 @@ with :mod:`pytest-xdist`."""
 
 
 class MissingModulesContextGenerator:
-    """Context manager generator that raises ImportError for a series of modules.
+    """Context manager generator that raises :py:class:`ImportError` for specified modules.
 
     In the provided context, an import of any modules in that list
     will raise an :py:class:`ImportError`.
@@ -103,7 +103,7 @@ class MissingModulesContextGenerator:
             module_names = tuple(sys.modules.keys())
 
             for module_name in module_names:
-                if module_name.partition(".")[0] in names:
+                if should_mock(module_name):
                     m.delitem(sys.modules, module_name)
 
             if patch_import:

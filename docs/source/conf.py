@@ -12,7 +12,7 @@ from pytest_missing_modules.__version__ import __version__
 
 project = "pytest_missing_modules"
 
-if (year := date.today().year) != "2024":
+if (year := date.today().year) != 2024:
     copyright = f"2024-{year}, Jérome Eertmans"
 else:
     copyright = "2024, Jérome Eertmans"
