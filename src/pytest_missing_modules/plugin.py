@@ -42,7 +42,7 @@ class MissingModulesContextGenerator:
     Args:
         monkeypatch: The monkeypatch object used to perform
             all patches.
-    """
+    """  # noqa: E501
 
     def __init__(self, monkeypatch: pytest.MonkeyPatch) -> None:  # noqa: D107
         self.monkeypatch = monkeypatch
