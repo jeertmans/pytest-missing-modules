@@ -15,6 +15,12 @@ for our library.
 (unreleased)=
 ## [Unreleased](https://github.com/jeertmans/pytest-missing-modules/compare/v0.2.0...HEAD)
 
+(unreleased-chore)=
+### Chore
+
+- Cleaned up documentation.
+  [#3](https://github.com/jeertmans/pytest-missing-modules/pull/3)
+
 (v0.2.0)=
 ## [v0.2.0](https://github.com/jeertmans/pytest-missing-modules/compare/v0.1.0...v0.2.0)
 

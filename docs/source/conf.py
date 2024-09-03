@@ -11,11 +11,11 @@ from datetime import date
 from pytest_missing_modules.__version__ import __version__
 
 project = "pytest_missing_modules"
-
-if (year := date.today().year) != "2024":
-    copyright = f"2024-{year}, Jérome Eertmans"
+start_year = 2024
+if (year := date.today().year) != start_year:
+    copyright = f"{start_year}-{year}, Jérome Eertmans"
 else:
-    copyright = "2024, Jérome Eertmans"
+    copyright = f"{start_year}, Jérome Eertmans"
 author = "Jérome Eertmans"
 version = __version__
 
