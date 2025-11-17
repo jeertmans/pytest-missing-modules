@@ -15,6 +15,14 @@ for our library.
 (unreleased)=
 ## [Unreleased](https://github.com/jeertmans/pytest-missing-modules/compare/v0.2.1...HEAD)
 
+(unreleased-chore)=
+### Chore
+
+- Added missing `py.typed` file.
+  [#4](https://github.com/jeertmans/pytest-missing-modules/pull/4)
+- Move from Rye to uv.
+  [#5](https://github.com/jeertmans/pytest-missing-modules/pull/5)
+
 (v0.2.1)=
 ## [v0.2.1](https://github.com/jeertmans/pytest-missing-modules/compare/v0.2.0...v0.2.1)
 
