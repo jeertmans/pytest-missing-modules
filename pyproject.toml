@@ -2,6 +2,21 @@
 build-backend = "hatchling.build"
 requires = ["hatchling", "hatch-fancy-pypi-readme"]
 
+[dependency-groups]
+dev = [
+  {include-group = "docs"},
+  "bump-my-version>=1.2.4",
+  "pre-commit>=3.5.0",
+]
+docs = [
+  "myst-parser>=3.0.1",
+  "sphinx-autodoc-typehints>=2.0.1",
+  "sphinx-book-theme>=0.0.39",
+  "sphinx-copybutton>=0.5.2",
+  "sphinx-remove-toctrees>=0.0.3",
+  "sphinxext-opengraph>=0.9.1",
+]
+
 [project]
 authors = [
   {name = "Jérome Eertmans", email = "jeertmans@icloud.com"},
@@ -118,18 +133,3 @@ select = ["ALL"]
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"
-
-[tool.rye]
-dev-dependencies = [
-  # dev
-  "bump-my-version>=0.23.0",
-  "pre-commit>=3.7.1",
-  # docs
-  "myst-parser>=3.0.0",
-  "sphinxext-opengraph>=0.9.1",
-  "sphinx-autodoc-typehints>=2.3.0",
-  "sphinx-copybutton>=0.5.2",
-  "sphinx-remove-toctrees>=1.0.0.post1",
-  "sphinx-book-theme>=1.1.3",
-]
-managed = true
