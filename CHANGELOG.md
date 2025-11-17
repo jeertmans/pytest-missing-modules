@@ -13,9 +13,12 @@ for our library.
 <!-- start changelog -->
 
 (unreleased)=
-## [Unreleased](https://github.com/jeertmans/pytest-missing-modules/compare/v0.2.1...HEAD)
+## [Unreleased](https://github.com/jeertmans/pytest-missing-modules/compare/v0.2.2...HEAD)
 
-(unreleased-chore)=
+(v0.2.2)=
+## [v0.2.2](https://github.com/jeertmans/pytest-missing-modules/compare/v0.2.1...v0.2.2)
+
+(v0.2.2-chore)=
 ### Chore
 
 - Added missing `py.typed` file.
